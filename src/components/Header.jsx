@@ -79,7 +79,7 @@ const Header = () => {
 const StyledAppBar = styled(AppBar, {
   shouldForwardProp: (prop) => prop !== "hide", // Prevent `hide` from being passed as an attribute
 })(({ theme, hide }) => ({
-  background: "linear-gradient(to right, #ff7e5f, #feb47b)",
+  background: "linear-gradient(to right, #0f2027, #203a43, #2c5364)",
   boxShadow: "none",
   borderBottom: `1px solid ${alpha(theme.palette.common.white, 0.2)}`,
   transition: "top 0.3s",
@@ -90,6 +90,7 @@ const StyledAppBar = styled(AppBar, {
 const LogoContainer = styled(Box)({
   display: "flex",
   alignItems: "center",
+  padding: "1px 35px"
 });
 
 const NavLinks = styled(Box)(({ theme }) => ({
@@ -106,10 +107,11 @@ const AiButton = styled(Button)({
   fontFamily: "'Poppins', sans-serif",
   fontWeight: 600,
   borderRadius: "24px",
-  padding: "12px 32px",
+  padding: "12px 10px",
   marginLeft: "16px",
-  backgroundColor: "#ff7e5f",
-  "&:hover": { backgroundColor: "#feb47b" },
+  color: "white",
+  backgroundColor: "#000000ff",
+  "&:hover": { backgroundColor: "#06384eff" },
 });
 
 export default Header;

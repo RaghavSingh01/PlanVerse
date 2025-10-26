@@ -27,7 +27,6 @@ const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 const AskAI = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery("(max-width:600px)");
-
   const [activeStep, setActiveStep] = useState(0);
   const [city, setCity] = useState("");
   const [days, setDays] = useState(1);

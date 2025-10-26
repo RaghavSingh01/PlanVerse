@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Button, Container, Typography, Grid } from "@mui/material";
 import ExploreIcon from "@mui/icons-material/Explore";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
-import HotelIcon from "@mui/icons-material/Hotel";
+import EventSeatIcon from '@mui/icons-material/EventSeat';
 import LocalActivityIcon from "@mui/icons-material/LocalActivity";
 import EmojiObjectsIcon from "@mui/icons-material/EmojiObjects";
 import { styled, keyframes } from "@mui/material/styles";
@@ -17,7 +17,7 @@ const HeroSection = styled("section")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  background: "linear-gradient(to right, #ff7e5f, #feb47b)",
+  background: "linear-gradient(to right, #090558ff, #7c4949ff)",
   color: theme.palette.common.white,
   position: "relative",
   marginBottom: "20px",
@@ -56,7 +56,7 @@ const LandingButton = styled(Button)({
   borderRadius: "24px",
   padding: "12px 32px",
   marginTop: "24px",
-  backgroundColor: "#ff7e5f",
+  background: "linear-gradient(to right, #005c97, #363795)",
   "&:hover": { backgroundColor: "#feb47b" },
   animation: `${fadeIn} 3.5s ease-in-out`,
 });
@@ -109,10 +109,10 @@ const Hero = () => {
               </CategoryText>
             </CategoryItem>
             <CategoryItem item xs={12} sm={4}>
-              <HotelIcon className="category-icon" />
-              <CategoryTitle variant="h6">Hotels</CategoryTitle>
+              <EventSeatIcon className="category-icon" />
+              <CategoryTitle variant="h6">Events</CategoryTitle>
               <CategoryText variant="body1">
-                Find the perfect place to stay, with options ranging from budget to luxury.
+                Find the perfect place to entertain yourself from movies to comedy shows and concerts.
               </CategoryText>
             </CategoryItem>
             <CategoryItem item xs={12} sm={4}>
