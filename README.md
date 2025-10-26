@@ -1,3 +1,3 @@
 ### PlanVerse
 # Deployed Link : 
-(https://plan-verse.vercel.app/)[link]
+[link](https://plan-verse.vercel.app/)
