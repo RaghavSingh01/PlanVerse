@@ -55,10 +55,6 @@ const PlaceDetails = ({ place, selected, refProp }) => {
   const handleFavoriteClick = () => {
     setIsFavorited(!isFavorited);
   };
-
-  // if (selected)
-  //   refProp?.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-
   return (
     <CardStyled elevation={6}>
       <MediaStyled
