@@ -20,13 +20,15 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import { formatResponseText } from "../utils/formatText";
 import { steps } from "../constants/constants";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import { getRecommendationsFromAI } from "../api/apiService";
 
 const genAI = new GoogleGenerativeAI(process.env.REACT_APP_GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
 const AskAI = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery("(max-width:600px)");
+
   const [activeStep, setActiveStep] = useState(0);
   const [city, setCity] = useState("");
   const [days, setDays] = useState(1);
@@ -42,7 +44,7 @@ const AskAI = () => {
       setActiveStep((prevActiveStep) => prevActiveStep + 1);
     }
   };
-
+  
   const handleBack = () => setActiveStep((prev) => prev - 1);
   const handleBackMain = () => {
     setActiveStep(0);
@@ -57,8 +59,9 @@ const AskAI = () => {
     setLoading(true);
     try {
       const prompt = `Plan a ${days}-day trip to ${city} with a ${budget} budget (in Indian Rs.). Focus on ${mood} activities.`;
-      const result = await model.generateContent(prompt);
-      const aiResponse = await result.response.text();
+      // const result = await model.generateContent(prompt);
+      // const aiResponse = await result.response.text();
+      const aiResponse = await getRecommendationsFromAI(prompt);
       setResponse(formatResponseText(aiResponse));
     } catch (error) {
       setResponse("Failed to get AI recommendation. Please try again.");
@@ -89,10 +92,11 @@ const AskAI = () => {
     <Paper
       sx={{
         p: 3,
-        backgroundColor: "#f0f2f5",
+       background: "linear-gradient(135deg, #6d2db1ff 0%, #00BFA6 100%)",
         borderRadius: theme.shape.borderRadius,
         boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
         mb: 3,
+        color: "white",
       }}
       id="ai-section"
     >

@@ -22,10 +22,12 @@ import { styled } from "@mui/material/styles";
 
 // Styled Components (Replaces makeStyles)
 const CardStyled = styled(Card)(({ theme }) => ({
-  background: "linear-gradient(135deg, #f6d365 0%, #fda085 100%)",
+  background: "linear-gradient(145deg, #f7f8fb, #7585e2ff)",
+  border: "1px solid rgba(0, 0, 0, 0.05)",
+  color: "#333",
   borderRadius: "15px",
   boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
-  color: theme.palette.text.primary,
+  // color: theme.palette.text.primary,
   overflow: "hidden",
 }));
 
@@ -35,11 +37,11 @@ const MediaStyled = styled(CardMedia)({
 });
 
 const ButtonStyled = styled(Button)(({ theme }) => ({
-  background: "linear-gradient(135deg, #f37335 0%, #fda085 100%)",
+  background: "linear-gradient(to right, #727272ff, #7d7fe6ff)",
   color: theme.palette.common.white,
-  "&:hover": {
-    background: "linear-gradient(135deg, #fda085 0%, #f37335 100%)",
-  },
+  // "&:hover": {
+  //   background: "linear-gradient(135deg, #fda085 0%, #f37335 100%)",
+  // },
 }));
 
 const FavoriteIconStyled = styled(FavoriteIcon)(({ theme }) => ({
@@ -57,8 +59,8 @@ const PlaceDetails = ({ place, selected, refProp }) => {
     setIsFavorited(!isFavorited);
   };
 
-  if (selected)
-    refProp?.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  // if (selected)
+  //   refProp?.current?.scrollIntoView({ behavior: "smooth", block: "start" });
 
   return (
     <CardStyled elevation={6}>

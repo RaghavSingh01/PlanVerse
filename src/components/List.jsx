@@ -20,7 +20,7 @@ import FilterListIcon from "@mui/icons-material/FilterList";
 
 const ContainerWrapper = styled("div")(({ theme }) => ({
   padding: "20px",
-  backgroundColor: "#f0f2f5",
+  background: "linear-gradient(to right, #090558ff, #7c4949ff)",
   borderRadius: theme.shape.borderRadius,
   boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
   marginTop: "20px",
@@ -51,12 +51,12 @@ const CategoryButton = styled(Button)(({ selected }) => ({
   textTransform: "none",
   fontWeight: selected ? "bold" : "normal",
   background: selected
-    ? "linear-gradient(to right, #ff7e5f, #feb47b)"
+    ?  "linear-gradient(to right, #005c97, #363795)"
     : "transparent",
-  color: selected ? "#fff" : "#000",
+  color: selected ? "#fff" : "white",
   border: selected ? "none" : "1px solid #ff7e5f",
   "&:hover": {
-    background: "linear-gradient(to right, #ff7e5f, #feb47b)",
+    background: "linear-gradient(to right, #0e195fff, #959290ff)",
     color: "#fff",
   },
 }));
@@ -73,7 +73,7 @@ const ListWrapper = styled(Grid)(({ theme }) => ({
     width: "8px",
   },
   "&::-webkit-scrollbar-thumb": {
-    backgroundColor: "#ff7e5f",
+    backgroundColor: "#0b0200ff",
     borderRadius: "4px",
   },
   "&::-webkit-scrollbar-track": {
@@ -141,18 +141,18 @@ const List = ({ places, childClicked, isLoading, type, setType, rating, setRatin
                 Accommodations
               </CategoryButton> */}
               <CategoryButton
-                selected={type === "events"}
-                onClick={() => setType("events")}
-                startIcon={<AttractionsIcon />}
-              >
-                Events
-              </CategoryButton>
-              <CategoryButton
                 selected={type === "attractions"}
                 onClick={() => setType("attractions")}
                 startIcon={<AttractionsIcon />}
               >
                 Attractions
+              </CategoryButton>
+              <CategoryButton
+                selected={type === "events"}
+                onClick={() => setType("events")}
+                startIcon={<AttractionsIcon />}
+              >
+                Events
               </CategoryButton>
             </Box>
 
