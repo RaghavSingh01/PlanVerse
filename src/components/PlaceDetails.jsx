@@ -39,9 +39,6 @@ const MediaStyled = styled(CardMedia)({
 const ButtonStyled = styled(Button)(({ theme }) => ({
   background: "linear-gradient(to right, #727272ff, #7d7fe6ff)",
   color: theme.palette.common.white,
-  // "&:hover": {
-  //   background: "linear-gradient(135deg, #fda085 0%, #f37335 100%)",
-  // },
 }));
 
 const FavoriteIconStyled = styled(FavoriteIcon)(({ theme }) => ({
