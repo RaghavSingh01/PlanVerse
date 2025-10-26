@@ -33,7 +33,6 @@ export const getPlacesData = async (type, sw, ne) => {
 
 export const getRecommendationsFromAI = async (prompt) => {
   const url = "https://openrouter.ai/api/v1/chat/completions";
-  console.log("Getting ai");
   const headers = {
     "Authorization": `Bearer ${process.env.REACT_APP_GEMINI_API_KEY}`,
     "Content-Type": "application/json"
@@ -56,11 +55,10 @@ export const getRecommendationsFromAI = async (prompt) => {
       headers: headers,
       body: body
     });
-    console.log("GOt ai");
 
     const data = await response.json();
     const recommendation = data.choices[0].message.content;
-    console.log("Movie Recommendations:\n", recommendation);
+    // console.log("Movie Recommendations:\n", recommendation);
 
     return recommendation;
   } catch (error) {
