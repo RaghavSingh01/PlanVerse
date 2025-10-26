@@ -20,6 +20,7 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import { formatResponseText } from "../utils/formatText";
 import { steps } from "../constants/constants";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import { getRecommendationsFromAI } from "../api/apiService";
 
 const genAI = new GoogleGenerativeAI(process.env.REACT_APP_GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
@@ -43,7 +44,7 @@ const AskAI = () => {
       setActiveStep((prevActiveStep) => prevActiveStep + 1);
     }
   };
-
+  
   const handleBack = () => setActiveStep((prev) => prev - 1);
   const handleBackMain = () => {
     setActiveStep(0);
@@ -58,8 +59,9 @@ const AskAI = () => {
     setLoading(true);
     try {
       const prompt = `Plan a ${days}-day trip to ${city} with a ${budget} budget (in Indian Rs.). Focus on ${mood} activities.`;
-      const result = await model.generateContent(prompt);
-      const aiResponse = await result.response.text();
+      // const result = await model.generateContent(prompt);
+      // const aiResponse = await result.response.text();
+      const aiResponse = await getRecommendationsFromAI(prompt);
       setResponse(formatResponseText(aiResponse));
     } catch (error) {
       setResponse("Failed to get AI recommendation. Please try again.");

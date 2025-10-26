@@ -30,3 +30,36 @@ export const getPlacesData = async (type, sw, ne) => {
     console.log("Development environment detected"); // for limiting api requests
   }
 };
+
+export const getRecommendationsFromAI = async (prompt) => {
+  const url = "https://openrouter.ai/api/v1/chat/completions";
+  const headers = {
+    "Authorization": "Bearer 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",
+    "Content-Type": "application/json"
+  };
+
+  const body = JSON.stringify({
+    model: "z-ai/glm-4.5-air:free",
+    messages: [
+      {
+        role: "user",
+        content: prompt
+      }
+    ]
+  });
+
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: headers,
+      body: body
+    });
+
+    const data = await response.json();
+    const recommendation = data.choices[0].message.content;
+    // console.log("Movie Recommendations:\n", recommendation);
+    return recommendation;
+  } catch (error) {
+    console.error("Failed to fetch or parse response:", error);
+  }
+}
